@@ -1,0 +1,44 @@
+#!/bin/bash
+set -e -x
+
+export JAVA_HOME=/var/vcap/packages/jdk/jdk1.8.0_152
+export PATH=$JAVA_HOME/bin:$PATH
+export ZOO_LOG_DIR=/var/vcap/sys/logs/zookeeper_server
+
+export PIDFILE=/var/vcap/sys/run/zookeeper_server/zookeeper_server.pid
+
+source /var/vcap/packages/common/utils.sh
+
+case $1 in
+
+  start)
+    mkdir -p /var/vcap/store/zookeeper_server
+    mkdir -p /var/vcap/sys/log/zookeeper_server
+    mkdir -p /var/vcap/sys/run/zookeeper_server
+    chown -H vcap:vcap /var/vcap/store/zookeeper_server
+    chown -H vcap:vcap /var/vcap/sys/log/zookeeper_server
+    chown -H vcap:vcap /var/vcap/sys/run/zookeeper_server
+    chown -H -R vcap:vcap /var/vcap/packages/kafka
+
+    cp /var/vcap/jobs/zookeeper_server/config/log4j.properties /var/vcap/packages/kafka/kafka_2.12-0.10.2.1/config
+    cp /var/vcap/jobs/zookeeper_server/config/zookeeper.properties /var/vcap/packages/kafka/kafka_2.12-0.10.2.1/config
+
+    echo <%= index + 1 %> > /var/vcap/store/zookeeper_server/myid
+    chown -H vcap:vcap /var/vcap/store/zookeeper_server/myid
+
+    exec chpst -u vcap:vcap /var/vcap/packages/kafka/kafka_2.12-0.10.2.1/bin/zookeeper-server-start.sh \
+      /var/vcap/packages/kafka/kafka_2.12-0.10.2.1/config/zookeeper.properties &
+
+    echo $! > ${PIDFILE}
+
+    ;;
+
+  stop)
+    kill_and_wait ${PIDFILE}
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    ;;
+
+esac
+exit 0

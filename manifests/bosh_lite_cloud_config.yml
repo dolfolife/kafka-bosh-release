@@ -1,0 +1,28 @@
+azs:
+  - name: z1
+
+disk_types:
+- name: default
+  disk_size: 3000
+
+resource_pools:
+- name: default
+  network: default
+  stemcell:
+    os: ubuntu-trusty
+    version: 3421.4
+
+networks:
+- name: default
+  type: manual
+  subnets:
+    - range: 10.244.0.0/24
+      reserved:
+        - 10.244.0.1
+      static: [10.244.0.2-10.244.0.6]
+      az: z1
+
+compilation:
+  workers: 5
+  network: default
+  az: z1

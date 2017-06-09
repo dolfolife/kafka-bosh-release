@@ -1,0 +1,7 @@
+---
+name: jdk
+
+dependencies: []
+
+files:
+  - jdk

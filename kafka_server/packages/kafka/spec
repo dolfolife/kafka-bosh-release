@@ -1,0 +1,8 @@
+---
+name: kafka
+
+dependencies:
+  - jdk
+
+files:
+  - kafka

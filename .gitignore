@@ -1,0 +1,10 @@
+.idea
+*.iml
+.dev_builds/
+.final_builds/
+blobs/
+dev_releases
+releases
+.blobs
+dev.yml
+target/
