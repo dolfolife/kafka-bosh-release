@@ -10,7 +10,7 @@ releases:
 
 instance_groups:
   - name: zoo_node
-    instances: 3
+    instances: 1
     azs: [z1]
     jobs:
     - name: zookeeper_server
@@ -24,7 +24,7 @@ instance_groups:
     networks:
       - name: default
   - name: kafka_node
-    instances: 5
+    instances: 1
     azs: [z1]
     jobs:
     - name: kafka_server
