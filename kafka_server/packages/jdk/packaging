@@ -1,4 +1,5 @@
 # abort script on any command that exits with a non zero value
 set -e -x
 
-tar -C ${BOSH_INSTALL_TARGET} -zxvf jdk
+tar -C ${BOSH_INSTALL_TARGET} -zxvf jdk/jdk-8u131-linux-x64.tar.gz
+

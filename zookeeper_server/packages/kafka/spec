@@ -5,4 +5,4 @@ dependencies:
   - jdk
 
 files:
-  - kafka
+  - kafka/kafka-0.10.2.1.tgz

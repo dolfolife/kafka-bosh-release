@@ -8,3 +8,4 @@ releases
 .blobs
 dev.yml
 target/
+.DS_Store
