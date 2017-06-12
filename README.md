@@ -10,6 +10,5 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --f
 
 TODO:
 - [ ] Create scripts to download blobs and upload them to the store directly
-- [ ] Multiple Nodes
 - [ ] Append logs to Bosh logs
 - [ ] Deploy a sample app to read and write in the queue
