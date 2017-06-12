@@ -1,6 +1,8 @@
 jdk/jdk-8u131-linux-x64.tar.gz:
   size: 185540433
+  object_id: 310fd4c7-83b2-43e1-68e0-62b0723dcd35
   sha: c2a5582c049beb5c7af6b87a469bc53b759b7b87
 kafka/kafka-0.10.2.1.tgz:
-  size: 34046244
-  sha: da6f2b1ae1feb25aac29a2a72e0a271855fcde8c
+  size: 38424081
+  object_id: 2707144f-50ff-4d15-47ab-bfc9f9f8d18b
+  sha: 3e726d7738168e715a9fe7e06ed941e76f1fc46c

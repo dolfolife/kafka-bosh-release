@@ -1,0 +1,10 @@
+# .pairs - configuration for 'git pair'
+      # place in project or home directory
+      pairs:
+        rs: Rodolfo Sanchez
+        md: Mark Ducommun
+        lk: Leonhardt Koepsell
+        mw: Mike W
+      email:
+        prefix: pair
+        domain: superclaims.com
